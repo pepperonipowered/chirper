@@ -1,4 +1,5 @@
 import { ChirpProps } from "@/types";
+import { formatDistanceToNow } from "date-fns";
 
 import {
   Card,
@@ -15,13 +16,7 @@ export default function Chirp({ chirp }: {chirp: ChirpProps}) {
                 <CardTitle>{chirp.user.name}</CardTitle>
                 <CardDescription>
                     {' '}
-                    {new Date(chirp.created_at).toLocaleString(undefined, {
-                        year: 'numeric',
-                        month: 'long',
-                        day: 'numeric',
-                        hour: '2-digit',
-                        minute: '2-digit',
-                    })}
+                    {formatDistanceToNow(new Date(chirp.created_at), { addSuffix: true })}
                 </CardDescription>
             </CardHeader>
             <CardContent>
