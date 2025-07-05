@@ -22,7 +22,7 @@ import {
 import { Link, useForm, usePage } from "@inertiajs/react";
 import InputError from "../input-error";
 import { Button } from "@/components/ui/button";
-import { EllipsisVertical, Pencil, Trash } from "lucide-react";
+import { EllipsisVertical, LoaderCircle, Pencil, Trash } from "lucide-react";
 import { Textarea } from "../ui/textarea";
 
 export default function Chirp({ chirp }: {chirp: ChirpProps}) {
@@ -88,7 +88,10 @@ export default function Chirp({ chirp }: {chirp: ChirpProps}) {
                         <Textarea value={data.message} onChange={(e) => setData('message', e.target.value)}></Textarea>
                         <InputError message={errors.message} className="mt-2" />
                         <div className="space-x-2">
-                            <Button className="mt-4">Save</Button>
+                            <Button type="submit" className="mt-4 w-full" tabIndex={4} disabled={processing}>
+                                {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                                Save
+                            </Button>
                             <Button
                                 className="mt-4"
                                 variant="secondary"
