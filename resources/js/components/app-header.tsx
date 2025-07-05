@@ -22,8 +22,8 @@ const mainNavItems: NavItem[] = [
         icon: LayoutGrid,
     },
     {
-        title: 'Test',
-        href: '/test',
+        title: 'Chirps',
+        href: '/chirps',
         icon: FlaskConical,
     },
 ];

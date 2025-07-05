@@ -17,7 +17,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('testing');
     })->name('test');
 
-    Route::resource('chirps', ChirpController::class)->only(['index', 'store', 'destroy']);
+    Route::resource('chirps', ChirpController::class)->only(['index', 'store', 'update', 'destroy']);
 });
 
 require __DIR__.'/settings.php';
